@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Rugby Scoreboard</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="scoreboardContainer">
+
+            <div class="topContainer">
+                <h1 class="teamName">HOME</h1>
+                <div class="timerDiv">
+                    <h1 class="numbers"><span id="minutes">00</span>:<span id="seconds">00</span></h1>
+                </div>
+                <h1 class="teamName">AWAY</h1>
+            </div>
+
+            <div class="middleContainer">
+                <div class="scoresDiv">
+                    <p id="totalScore">00</p>
+                </div>
+                <div class="eventsDiv">
+                    <p id="eventPoints"></p>
+                </div>
+                <div class="scoresDiv">
+                    <p id="totalScore">00</p>
+                </div>
+            </div>
+
+            <div class="statsContainer">
+                <div class="homeStats">
+                    <div class="statsDivs50">
+                        <p class="statsTitle">Tries</p>
+                        <div class="statsDiv">
+                            <p>00</p>
+                        </div>
+                    </div>
+                    <div class="statsDivs50">
+                        <p class="statsTitle">Conversions</p>
+                        <div class="statsDiv">
+                            <p>00</p>
+                        </div>
+                    </div>
+                    <div class="statsDivs50">
+                            <p class="statsTitle">Penalties</p>
+                            <div class="statsDiv">
+                                <p>00</p>
+                            </div>
+                    </div>
+                    <div class="statsDivs50">
+                            <p class="statsTitle">Drop goals</p>
+                            <div class="statsDiv">
+                                <p>00</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="awayStats">
+                        <div class="statsDivs50">
+                            <p class="statsTitle">Tries</p>
+                            <div class="statsDiv">
+                                <p>00</p>
+                            </div>
+                        </div>
+                        <div class="statsDivs50">
+                            <p class="statsTitle">Conversions</p>
+                            <div class="statsDiv">
+                                <p>00</p>
+                            </div>
+                        </div>
+                        <div class="statsDivs50">
+                            <p class="statsTitle">Penalties</p>
+                            <div class="statsDiv">
+                                <p>00</p>
+                            </div>
+                        </div>
+                        <div class="statsDivs50">
+                            <p class="statsTitle">Drop goals</p>
+                            <div class="statsDiv">
+                                <p>00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+
+
+                <div class="buttonsContainer">
+                    <div class="homeButtons">
+                        <!-- <p id="gameOver"></p> -->
+                        <button id="tryScored">Try scored</button>
+                        <button id="conversionScored">Conversion</button>
+                        <button id="penalty">Penalty</button>
+                        <button id="dropGoal">Drop Goal</button>
+                    </div>
+
+                    <div>
+                        <button id="startGameButton">START GAME</button>
+                    </div>
+
+                    <div class="awayButtons">
+                        <button id="tryScored">Try scored</button>
+                        <button id="conversionScored">Conversion</button>
+                        <button id="penalty">Penalty</button>
+                        <button id="dropGoal">Drop Goal</button>
+                    </div>
+                </div>
+            
+
+                <!-- <p id="gameOver"></p>
+            <p>What was scored: <span id="eventPoints">0</span></p>
+            <p>Score: <span id="totalScore">0</span></p>
+            <button id="startGameButton">Start Game</button>
+            <button id="tryScored">Try scored</button>
+            <button id="conversionScored">Conversion</button>
+            <button id="penalty">Penalty</button>
+            <button id="dropGoal">Drop Goal</button> -->
+            </div>
+        </div>
+        <script src="main.js"></script>
+</body>
+
+</html>
