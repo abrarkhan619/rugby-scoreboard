@@ -34,6 +34,7 @@ html {
     border-style: solid;
     width: 960px;
     background-color: black;
+    border-radius: 20px;
 }
 
 .column {
@@ -63,7 +64,7 @@ html {
     background-color: rgb(43, 43, 43);
     color: rgb(231, 3, 3);
     font-size: 7rem;
-    width: 15rem;
+    width: 18rem;
     padding: 0 0.5rem;
     /* margin-top: 5px; */
     text-align: center;
@@ -71,6 +72,7 @@ html {
     border-color: white;
     border-style: solid;
     font-family: 'Orbitron';
+    overflow: hidden;
 }
 
 .eventsDiv {
