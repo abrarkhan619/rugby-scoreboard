@@ -33,7 +33,9 @@ const awayDropStat = document.getElementById("awayDropStat")
 
 
 
-let pointsScored = 0
+// let pointsScored = 0
+let homePointsScored = 0;
+let awayPointsScored = 0;
 const tryPoints = 5;
 const conversionPoints = 2;
 const penaltyPoints = 3;
@@ -50,6 +52,23 @@ homeDropGoal.disabled = true
 awayTry.disabled = true;
 awayPenalty.disabled = true;
 awayDropGoal.disabled = true;
+
+function defaultStats() {
+    homePointsScored = 0;
+    awayPointsScored = 0;
+    tryStat = 1;
+    conversionStat = 1;
+    penaltyStat = 1;
+    dropStat = 1;
+    homeTryStat.textContent = "00";
+    homePenaltyStat.textContent = "00";
+    homeConversionStat.textContent = "00";
+    homeDropStat.textContent = "00"
+    awayTryStat.textContent = "00";
+    awayPenaltyStat.textContent = "00";
+    awayConversionStat.textContent = "00";
+    awayDropStat.textContent = "00"
+}
 
 
 // Function for timer
@@ -75,7 +94,14 @@ function countUpTimer() {
             }
             time = 0
             seconds.textContent = "00"
-            // startGameButton.disabled = false;
+            homeConversion.disabled = true;
+            awayConversion.disabled = true;
+            homeTry.disabled = true;
+            homePenalty.disabled = true;
+            homeDropGoal.disabled = true
+            awayTry.disabled = true;
+            awayPenalty.disabled = true;
+            awayDropGoal.disabled = true;
         }
 
         // startGameButton.disabled = true;
@@ -88,6 +114,12 @@ function resetTimer() {
     minutes.textContent = 0;
     seconds.textContent = 0;
 
+    homeScore.textContent = 0;
+    awayScore.textContent = 0;
+    homeScore.textContent = "00";
+    awayScore.textContent = "00";
+
+    defaultStats()
     clearInterval(countUp)
 }
 
@@ -115,27 +147,27 @@ startGameButton.addEventListener("click", () => {
 homeTry.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A TRY: ${tryPoints} POINTS`;
     homeConversion.disabled = false;
-    homeScore.textContent = pointsScored += tryPoints;
+    homeScore.textContent = homePointsScored += tryPoints;
     homeTryStat.textContent = tryStat++;
 })
 
 homeConversion.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A CONVERSION: ${conversionPoints} POINTS`;
     homeConversion.disabled = true;
-    homeScore.textContent = pointsScored += conversionPoints
+    homeScore.textContent = homePointsScored += conversionPoints
     homeConversionStat.textContent = conversionStat++;
 })
 
 homePenalty.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A PENALTY: ${penaltyPoints} POINTS`;
-    homeScore.textContent = pointsScored += penaltyPoints
+    homeScore.textContent = homePointsScored += penaltyPoints
     homePenaltyStat.textContent = penaltyStat++
     homeConversion.disabled = true;
 })
 
 homeDropGoal.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A DROP GOAL: ${dropGoalPoints} POINTS`;
-    homeScore.textContent = pointsScored += dropGoalPoints
+    homeScore.textContent = homePointsScored += dropGoalPoints
     homeDropStat.textContent = dropStat++
     homeConversion.disabled = true;
 })
@@ -143,27 +175,27 @@ homeDropGoal.addEventListener("click", () => {
 awayTry.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A TRY: ${tryPoints} POINTS`;
     awayConversion.disabled = false;
-    awayScore.textContent = pointsScored += tryPoints
+    awayScore.textContent = awayPointsScored += tryPoints
     awayTryStat.textContent = tryStat++;
 })
 
 awayConversion.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A CONVERSION: ${conversionPoints} POINTS`;
     awayConversion.disabled = true;
-    awayScore.textContent = pointsScored += conversionPoints
+    awayScore.textContent = awayPointsScored += conversionPoints
     awayConversionStat.textContent = conversionStat++;
 })
 
 awayPenalty.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A PENALTY: ${penaltyPoints} POINTS`;
-    awayScore.textContent = pointsScored += penaltyPoints
+    awayScore.textContent = awayPointsScored += penaltyPoints
     awayPenaltyStat.textContent = penaltyStat++
     awayConversion.disabled = true;
 })
 
 awayDropGoal.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A DROP GOAL: ${dropGoalPoints} POINTS`;
-    awayScore.textContent = pointsScored += dropGoalPoints
+    awayScore.textContent = awayPointsScored += dropGoalPoints
     awayDropStat.textContent = dropStat++
     awayConversion.disabled = true;
 })
