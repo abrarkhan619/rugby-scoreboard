@@ -23,6 +23,8 @@ html {
     align-items: center;
     justify-content: center;
     background-color: gray;
+    background-image: url('./images/stadium.jpg');
+
 }
 
 #scoreboardContainer {
