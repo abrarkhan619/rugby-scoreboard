@@ -42,16 +42,24 @@ let tryStat = 1;
 let conversionStat = 1;
 let penaltyStat = 1;
 let dropStat = 1;
+homeConversion.disabled = true;
+awayConversion.disabled = true;
+homeTry.disabled = true;
+homePenalty.disabled = true;
+homeDropGoal.disabled = true
+awayTry.disabled = true;
+awayPenalty.disabled = true;
+awayDropGoal.disabled = true;
 
 
 // Function for timer
 function countUpTimer() {
     let time = 0;
-    countUp = setInterval(function(){
+    countUp = setInterval(function () {
         // let time = 0;
         time++;
         seconds.textContent = time
-    
+
         if (seconds.textContent % 60 == 0) {
             minutes.textContent++
             time = 0
@@ -74,94 +82,88 @@ function countUpTimer() {
     }, 1)
 }
 
-// On click button actions
-startGameButton.addEventListener("click", () =>{
-    // if (minutes.textContent > 0 || seconds.textContent > 0)
-    // if (minutes.textContent == "80") {
-    //     console.log("reset logging");
-    //     startGameButton.disabled = false;
-    //     time = 0
-    //     minutes.textContent = 00
-    //     countUpTimer()
-    // } else if (seconds.textContent == 0 && minutes.textContent == 0) {
-    //     console.log("start game");
-    //     startGameButton.disabled = true;
-    //     time = 0
-    //     // minutes.textContent = 00
-    //     countUpTimer()
-    // }
+function resetTimer() {
+    console.log("clear timer");
+    time = 0;
+    minutes.textContent = 0;
+    seconds.textContent = 0;
 
+    clearInterval(countUp)
+}
+
+// On click button actions
+startGameButton.addEventListener("click", () => {
     if (minutes.textContent == 80) {
         console.log("reset logging");
-        // startGameButton.disabled = flase;
-        time = 0;
-        minutes.textContent = 0;
-        seconds.textContent = 0;
-        countUpTimer()
+        eventPoints.textContent = "NEW GAME STARTS!";
+        resetTimer();
+        countUpTimer();
     } else if (seconds.textContent == 0 && minutes.textContent == 0) {
         console.log("start game");
+        eventPoints.textContent = "LET THE GAME BEGIN!";
         countUpTimer();
     }
 
-    // if (seconds.textContent == 0 && minutes.textContent == 0) {
-    //     console.log("start game");
-        
-    //     countUpTimer()
-    //     startGameButton.disabled = true;
-    // } else if (minutes.textContent == 80) {
-    //     console.log("reset logging");
-        
-    //     startGameButton.enabled = false;
-    //     time = 0
-    //     minutes.textContent = 00
-    //     countUpTimer()
-    // }
+    homeTry.disabled = false;
+    homePenalty.disabled = false;
+    homeDropGoal.disabled = false;
+    awayTry.disabled = false;
+    awayPenalty.disabled = false;
+    awayDropGoal.disabled = false;
 })
 
-homeTry.addEventListener("click", () =>{
+homeTry.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A TRY: ${tryPoints} POINTS`;
-    homeScore.textContent = pointsScored += tryPoints
+    homeConversion.disabled = false;
+    homeScore.textContent = pointsScored += tryPoints;
     homeTryStat.textContent = tryStat++;
 })
 
-homeConversion.addEventListener("click", () =>{
+homeConversion.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A CONVERSION: ${conversionPoints} POINTS`;
+    homeConversion.disabled = true;
     homeScore.textContent = pointsScored += conversionPoints
     homeConversionStat.textContent = conversionStat++;
 })
 
-homePenalty.addEventListener("click", () =>{
+homePenalty.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A PENALTY: ${penaltyPoints} POINTS`;
     homeScore.textContent = pointsScored += penaltyPoints
     homePenaltyStat.textContent = penaltyStat++
+    homeConversion.disabled = true;
 })
 
-homeDropGoal.addEventListener("click", () =>{
+homeDropGoal.addEventListener("click", () => {
     eventPoints.textContent = `HOME TEAM SCORED A DROP GOAL: ${dropGoalPoints} POINTS`;
     homeScore.textContent = pointsScored += dropGoalPoints
     homeDropStat.textContent = dropStat++
+    homeConversion.disabled = true;
 })
 
-awayTry.addEventListener("click", () =>{
+awayTry.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A TRY: ${tryPoints} POINTS`;
+    awayConversion.disabled = false;
     awayScore.textContent = pointsScored += tryPoints
     awayTryStat.textContent = tryStat++;
 })
 
-awayConversion.addEventListener("click", () =>{
+awayConversion.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A CONVERSION: ${conversionPoints} POINTS`;
+    awayConversion.disabled = true;
     awayScore.textContent = pointsScored += conversionPoints
     awayConversionStat.textContent = conversionStat++;
 })
 
-awayPenalty.addEventListener("click", () =>{
+awayPenalty.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A PENALTY: ${penaltyPoints} POINTS`;
     awayScore.textContent = pointsScored += penaltyPoints
     awayPenaltyStat.textContent = penaltyStat++
+    awayConversion.disabled = true;
 })
 
-awayDropGoal.addEventListener("click", () =>{
+awayDropGoal.addEventListener("click", () => {
     eventPoints.textContent = `AWAY TEAM SCORED A DROP GOAL: ${dropGoalPoints} POINTS`;
     awayScore.textContent = pointsScored += dropGoalPoints
     awayDropStat.textContent = dropStat++
+    awayConversion.disabled = true;
 })
