@@ -97,9 +97,11 @@ function countUpTimer() {
         }
 
         if (minutes.textContent == 80) {
-            if (homeScore.textContent > awayScore.textContent) {
+            const finalHomeScore = Number(homeScore.textContent);
+            const finalAwayScore = Number(awayScore.textContent)
+            if (finalHomeScore > finalAwayScore) {
                 eventPoints.textContent = "HOME TEAM WINS"
-            } else if (homeScore.textContent < awayScore.textContent) {
+            } else if (finalHomeScore < finalAwayScore) {
                 eventPoints.textContent = "AWAY TEAM WINS"
             } else {
                 eventPoints.textContent = "GAME OVER. IT'S A DRAW."
